@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Working Holiday Mate</title>
+    <%= csrf_meta_tags %> <!-- クロスサイトリクエストフォージェリ(CSRF)の対策のために記述する。 -->
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navber navber-default navber-fixed-top navber-transparent">
+
+      <div class="ber_container">
+            <%= link_to root_path do %>
+              <span><%= image_tag 'icons/logo.png', class:'navber-brand' %></span>
+            <% end %>
+            <ul class="nav navber-nav navber-right">
+              <% if logged_in? %><!-- "?"は真偽値を返す-->
+                  <li>
+                    <%= link_to new_offer_path do %>
+                      <%= image_tag 'icons/offer.png' %><!--投稿-->
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to current_user do %>
+                    <!-- link_to にモデルオブジェクトを渡すと、users/"id"のリンクをつくる。そのモデルに対応するコントローラーのshowアクションに飛ぶ。 -->
+                      <%= image_tag 'icons/my_page.png' %><!--マイページ-->
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to '#' do %>
+                      <%= image_tag 'icons/message.png' %><!--メッセージ-->
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to logout_path, method: :delete do %>
+                      <%= image_tag 'icons/logout.png' %><!--ログアウト-->
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to 'https://appear.in/' do %>
+                      <%= image_tag 'icons/appear.in.png' %>
+                    <% end %>
+                  </li>
+              <% else %>
+                  <li>
+                    <%= link_to new_user_path do %>
+                      <%= image_tag 'icons/register.png' %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to login_path do %>
+                      <%= image_tag 'icons/login.png' %>
+                    <% end %>
+                  </li>
+              <% end %>
+            </ul>
+        </div>
+      </nav>
+
+<script>
+$(function(){
+  $('.alert').fadeOut(2000);
+
+});
+</script>
+
+
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+<!-- flashは
+flash: {
+  alert: "登録に失敗しました"
+}
+ように、hashという形式で定義されており<%= flash[:alert] %>のようにすることで、それぞれにアクセスすることができます。 -->
+      <% end %>
+
+    <%= yield %>
+    <footer class="footer">
+      <div class="container">
+        <ul class=footer_menu>
+          <li>
+            <%= link_to 'お問い合わせ', inquiries_index_path %>
+          </li>
+          <li>
+            <%= link_to 'プライバシーポリシー',"#" %>
+          </li>
+          <li>
+            <%= link_to '広告掲載',"#" %>
+          </li>
+          <li>
+            <%= link_to '退会', retire_path %>
+          </li>
+          <li>
+            <%= link_to '運営',"#" %>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

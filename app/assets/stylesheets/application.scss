@@ -1,0 +1,10 @@
+/* // application.scssは読み込むscssファイルを定義するファイル。 */
+// 必要なデザインは以降custom.scssでクラスを指定して記述すればいい
+// class名は異なるHTMLファイルでもかぶったらダメ。
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "custom";
+@import "tops";
+@import "users";
+// *= require bootstrap-datetimepicker
+// datetimepickerに必要

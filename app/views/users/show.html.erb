@@ -1,0 +1,93 @@
+<div class="container">
+    <% if @user_my_page.id=current_user.id %>
+      <%= link_to edit_user_path(current_user) do %>
+        <%=image_tag 'icons/edit.png' %>
+      <% end %>
+    <% end %>
+
+    <%= @user_my_page.nickname %>
+    <%= @user_my_page.gender %>
+
+    <div class="offer-middle">
+      <div class="favorite-icon">
+        <%=image_tag 'icons/favorite.png' %>
+      </div>
+      <div class="contact-icon">
+        <%=image_tag 'icons/contact.png' %>
+      </div>
+    </div>
+
+    <div class="offer-bottom">
+      <div class="col-md-4 offer-bottom-left">
+        <div class="offer-bottom-left-top">
+          <%= image_tag @user_my_page.my_image.url %>
+        </div>
+        <div class="offer-bottom-left-bottom">
+          <div class="flag">
+            debugger
+            <% case @user_my_page.nationality %>
+              <% when "Japan" then %>
+              <%= image_tag 'icons/flags/jpy.png' %>
+              <% when "Korea" then %>
+              <%=image_tag 'icons/flags/kre.png' %>
+              <% when "Taiwan" then %>
+              <%=image_tag 'icons/flags/twn.png' %>
+              <% when "Hong Kong" then %>
+              <%=image_tag 'icons/flags/hkn.png' %>
+              <% when "China" then %>
+              <%=image_tag 'icons/flags/chn.png' %>
+              <% when "Australia" then %>
+              <%=image_tag 'icons/flags/aus.png' %>
+              <% when "New Zealand" then %>
+              <%=image_tag 'icons/flags/nzl.png' %>
+              <% when "France" then %>
+              <%=image_tag 'icons/flags/fra.png' %>
+              <% when "German" then %>
+              <%=image_tag 'icons/flags/gmn.png' %>
+              <% when "Nederland" then %>
+              <%=image_tag 'icons/flags/ndl.png' %>
+              <% when "Canada" then %>
+              <%=image_tag 'icons/flags/cnd.png' %>
+            <% end %>
+          </div>
+          <h4 class="nickname"><!-- nameはflagの右にfloatする -->
+            <%= @user_my_page.nickname %>
+          </h4>
+        </div>
+      </div>
+      <ul class="col-md-6 offer-bottom-right">
+          <li class="nationality-container">
+            <p>出身国　</p>
+            <%= @user_my_page.nationality %>
+            <!-- 上記メソッドにclass:'hoge'のようにクラスの指定はできない？ -->
+          </li>
+        <div class="languages-container">
+          <li class="talkable-languages-container">
+            <p>話したい言語　</p>　
+            <% @user_my_page.user_language_levels.each do |language| %>
+              <%= language.language %>
+            <% end %>
+          </li>
+          <li class="talkable-languages-level-container">
+            <p>level　</p>
+            <% @user_my_page.user_language_levels.each do |level| %>
+            <%= level.level %>
+            <% end %>
+          </li>
+        </div>
+          <li class="hobby-container">
+            <p>趣味　</p>　<%= @user_my_page.hobby %>
+          </li>
+          <li class="introduce-container">
+            <p>自己紹介　</p>
+            <%= @user_my_page.introduce_yourself %>
+          </li>
+
+        </ul>
+          <!-- nationarity,age,hobby,introduce -->
+      </div>
+      <%# @favorite_offers.each do |offer| %>
+
+      <%# end %>
+
+  </div>

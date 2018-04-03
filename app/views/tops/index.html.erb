@@ -1,0 +1,85 @@
+
+<div class="main">
+  <div class="offer">
+    <% if logged_in? || !@offer.nil? %>
+    <% @offer.each do |offer| %>
+    <!-- 募集案件 -->
+    <div class="row">
+      <div class="col-md-6 offer.container" >
+        <%= link_to(offer_details_index_path(a: offer.id)) do %>
+        <!-- :a　はoffer.idのハッシュ。paramsに格納され、コントローラーでfindメソッドで、どのOfferテーブルを引っ張ってくるか指定するのに使う。 -->
+        <h3 class="offer_title">
+
+            <%= offer.title %>
+
+        </h3>
+        <div class="media"> <!-- http://bootstrap3.cyberlab.info/components/mediaObject.html#usage1 -->
+          <div class="media-left">
+            <div class="my_image">
+              <%#= link_to my_page_path(a: user_id) do %>
+              <%= image_tag offer.user.my_image.url %>
+              <%# end %>
+            </div>
+            <div class="bottom-of-left">
+
+                <div class="flag">
+                  <% case offer.user.nationality %>
+                    <% when "Japan" then %>
+                    <%= image_tag 'icons/flags/jpy.png' %>
+                    <% when "Korea" then %>
+                    <%=image_tag 'icons/flags/kre.png' %>
+                    <% when "Taiwan" then %>
+                    <%=image_tag 'icons/flags/twn.png' %>
+                    <% when "Hong Kong" then %>
+                    <%=image_tag 'icons/flags/hkn.png' %>
+                    <% when "China" then %>
+                    <%=image_tag 'icons/flags/chn.png' %>
+                    <% when "Australia" then %>
+                    <%=image_tag 'icons/flags/aus.png' %>
+                    <% when "New Zealand" then %>
+                    <%=image_tag 'icons/flags/nzl.png' %>
+                    <% when "France" then %>
+                    <%=image_tag 'icons/flags/fra.png' %>
+                    <% when "German" then %>
+                    <%=image_tag 'icons/flags/gmn.png' %>
+                    <% when "Nederland" then %>
+                    <%=image_tag 'icons/flags/ndl.png' %>
+                    <% when "Canada" then %>
+                    <%=image_tag 'icons/flags/cnd.png' %>
+                  <% end %>
+                </div>
+                <h4 class="nickname"><!-- nameはflagの右にfloatする -->
+                  <%= offer.user.nickname %>
+                </h4>
+
+              </div><!-- bottom-of-left -->
+
+          </div><!-- media-left -->
+
+          <ul class="media-right">
+            <li>渡航先　<%= offer.country %>:<%= offer.state %>,<% offer.region %></li>
+            <li>渡航予定日<%= offer.period_from %>　～　<%= offer.period_to %></li>
+          <div class="talkable-languages-container">
+            <li class="talkable-languages">
+              話したい言語　
+              <% offer.user.user_language_levels.each do |language| %>
+                <%= language.language %>
+              <% end %>
+            </li>
+            <li class="talkable-languages-level">
+              level
+              <% offer.user.user_language_levels.each do |level| %>
+              <%= level.level %>
+              <% end %>
+            </li>
+          </div>
+          </ul>
+        </div>
+        <!-- media -->
+      <% end %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

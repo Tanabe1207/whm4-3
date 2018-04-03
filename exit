@@ -1,0 +1,53 @@
+[33mcommit 8aa6cd6408ff8fe21f171f69cc96131ec3e167c8[m
+Author: root <root@DESKTOP-FJJP9AR.localdomain>
+Date:   Thu Mar 15 17:54:28 2018 +0900
+
+    after migrate language again
+
+[33mcommit b5ef9007c04fb2b5c78290b6e24eed341eec5ddf[m
+Author: root <root@DESKTOP-FJJP9AR.localdomain>
+Date:   Thu Mar 15 17:30:23 2018 +0900
+
+    after migrate and make a select form of language
+
+[33mcommit 61558ef8ca0e8207d07e614ce44d31b58b8d02f9[m
+Author: root <root@DESKTOP-FJJP9AR.localdomain>
+Date:   Thu Mar 15 17:09:59 2018 +0900
+
+    after g language model.migrate not yet
+
+[33mcommit b1a9f7b9d50e13493dda394cfab1368c1869e2ec[m
+Author: root <root@DESKTOP-FJJP9AR.localdomain>
+Date:   Thu Mar 15 15:37:54 2018 +0900
+
+    success register and login
+
+[33mcommit 3208c866c4f7df08febc81b96e52955cf2a6c6b3[m
+Author: root <root@DESKTOP-FJJP9AR.localdomain>
+Date:   Wed Mar 14 19:47:27 2018 +0900
+
+    browse all clear
+
+[33mcommit bf220870624e70f18a4f9eff7ae2cc1d02440fde[m
+Author: root <root@DESKTOP-FJJP9AR.localdomain>
+Date:   Wed Mar 14 18:45:06 2018 +0900
+
+    brows sessions/new
+
+[33mcommit 2e044f5b7f6dd30f358683ea9c15e3544348e430[m
+Author: root <root@DESKTOP-FJJP9AR.localdomain>
+Date:   Wed Mar 14 18:38:40 2018 +0900
+
+    migrate add_ pass
+
+[33mcommit 3a4bf22cd183bce65e1d67b00111520c4e004915[m
+Author: root <root@DESKTOP-FJJP9AR.localdomain>
+Date:   Wed Mar 14 18:33:35 2018 +0900
+
+    migration and brous user/new works
+
+[33mcommit 10240ddf738984be5cfdcaa3175a92f4296d558c[m
+Author: root <root@DESKTOP-FJJP9AR.localdomain>
+Date:   Wed Mar 14 17:47:38 2018 +0900
+
+    first commit

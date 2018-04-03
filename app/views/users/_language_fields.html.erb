@@ -1,0 +1,6 @@
+<fieldset>
+  <%= f.select :language, options_for_select(Language.pluck(:language)) %>
+  <%= f.select :level, options_for_select([["全く話せない"],["片言でなら"],["日常会話OK"],["ビジネスで使ってる"],["ネイティヴ"]]) %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "削除", '#', class:"remove_fields" %>
+</fieldset>

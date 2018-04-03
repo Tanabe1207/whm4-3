@@ -1,0 +1,71 @@
+.alert{
+  margin-bottom: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+  // z-indexプロパティは、ボックスの重なり順序を指定する際に使用します。 原則*としては、値が大きい要素ほど前面にきます。
+  //  ただしあくまでもこれは「原則」の話です。 後述するスタック文脈によって、単純に大きな値が指定されている要素が前面にくるわけではありません
+}
+
+.navber-transparent{
+  margin-bottom: 0px;
+  background-color: #FDF5E6;
+// 参考：下記のコードの"a"はアンカー。アンカーはリンクが張られてる文字のこと。
+// アンカーはデフォルトで青字になるが、!importantは何よりもこれを優先しろの意。
+// つまりアンカーを白#fffにしろという命令だが、.navber-transparentクラス内の要素は
+// 画像なので、変化はない。なので入れない。
+  // a {
+  // color: #fff !important;
+  // }
+  .navber-brand{
+    padding: 0px;
+    margin: 10px
+  }
+  .navber-right{
+    float:right
+  }
+  .navber-right li{
+    float:right
+  }
+
+   img{
+     height: 40px;
+   }
+}
+
+
+.offer {
+    margin: 2em 0;
+    background: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.offer .offer_title {
+    font-size: 1.2em;
+    background: #5fc2f5;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.offer p {
+    padding: 15px 20px;
+    margin: 0;
+}
+.footer.footer{
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  background-color: #FFFFCC;
+
+  ul.footer_menu{
+        line-height: 2;
+
+    li{display: inline-block;}
+    li:not(:nth-child(1)):before {
+  content:" | ";
+  color:silver;
+    }
+
+  }
+}

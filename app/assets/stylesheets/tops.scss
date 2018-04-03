@@ -1,0 +1,29 @@
+.my_image{
+  img{
+  margin-left: 11px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-position: center center;
+  // display: inline-block;  // inlineかどうかまだ未確定
+  }
+}
+
+.bottom-of-left{
+
+  .flag{
+    margin-left: 13px;
+    img{
+    width: 30px;
+    height: auto;
+    background-position: center center;
+    }
+
+  }
+
+  .nickname{
+    margin-left: 11px;
+    text-align:center;
+  }
+
+}

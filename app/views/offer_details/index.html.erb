@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-10 offer-main">
+      <div class="offer-top">
+        <div class="offer-image">
+          <%= image_tag @offer_details.offer_image.url %>
+        </div>
+        <div class="offer-place">
+          <p>渡航先　</p>　
+          <%= @offer_details.country %>:<%= @offer_details.state %>,<% @offer_details.region %></li>
+        </div>
+        <!-- 左寄せ -->
+        <div class="period">
+          <p>渡航予定日　</p>
+          <%= @offer_details.period_from %>　～　<%= @offer_details.period_to %>
+        </div>
+        <!-- 右寄せ -->
+        <div class="offer-title">
+          <%= @offer_details.title %>
+        </div>
+        <div class="offer-detail">
+          <%= @offer_details.detail %>
+        </div>
+      </div>
+
+      <div class="offer-middle">
+        <div class="favorite-icon">
+          <%=image_tag 'icons/favorite.png' %>
+        </div>
+        <div class="contact-icon">
+          <%= link_to rooms_show_path do %>
+          <%= image_tag 'icons/contact.png' %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="offer-bottom">
+        <%= link_to @offer_details.user do %>
+        <div class="col-md-4 offer-bottom-left">
+          <div class="offer-bottom-left-top">
+            <%= image_tag @offer_details.user.my_image.url %>
+          </div>
+          <div class="offer-bottom-left-bottom">
+            <div class="flag">
+              <% case @offer_details.user.nationality %>
+                <% when "Japan" then %>
+                <%= image_tag 'icons/flags/jpy.png' %>
+                <% when "Korea" then %>
+                <%=image_tag 'icons/flags/kre.png' %>
+                <% when "Taiwan" then %>
+                <%=image_tag 'icons/flags/twn.png' %>
+                <% when "Hong Kong" then %>
+                <%=image_tag 'icons/flags/hkn.png' %>
+                <% when "China" then %>
+                <%=image_tag 'icons/flags/chn.png' %>
+                <% when "Australia" then %>
+                <%=image_tag 'icons/flags/aus.png' %>
+                <% when "New Zealand" then %>
+                <%=image_tag 'icons/flags/nzl.png' %>
+                <% when "France" then %>
+                <%=image_tag 'icons/flags/fra.png' %>
+                <% when "German" then %>
+                <%=image_tag 'icons/flags/gmn.png' %>
+                <% when "Nederland" then %>
+                <%=image_tag 'icons/flags/ndl.png' %>
+                <% when "Canada" then %>
+                <%=image_tag 'icons/flags/cnd.png' %>
+              <% end %>
+            </div>
+            <h4 class="nickname"><!-- nameはflagの右にfloatする -->
+              <%= @offer_details.user.nickname %>
+            </h4>
+          </div>
+        </div>
+        <ul class="col-md-6 offer-bottom-right">
+            <li class="nationality-container">
+              <p>出身国　</p>
+              <%= @offer_details.user.nationality %>
+              <!-- 上記メソッドにclass:'hoge'のようにクラスの指定はできない？ -->
+            </li>
+          <div class="languages-container">
+            <li class="talkable-languages-container">
+              <p>話したい言語　</p>　
+              <% @offer_details.user.user_language_levels.each do |language| %>
+                <%= language.language %>
+              <% end %>
+            </li>
+            <li class="talkable-languages-level-container">
+              <p>level　</p>
+              <% @offer_details.user.user_language_levels.each do |level| %>
+              <%= level.level %>
+              <% end %>
+            </li>
+          </div>
+            <li class="hobby-container">
+              <p>趣味　</p>　<%= @offer_details.user.hobby %>
+            </li>
+            <li class="introduce-container">
+              <p>自己紹介　</p>
+              <%= @offer_details.user.introduce_yourself %>
+            </li>
+
+          </ul>
+            <!-- nationarity,age,hobby,introduce -->
+        <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
