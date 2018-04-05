@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     # user.user_language_levels = [UserLanguageLevel.new(user:user,language_id:up[:language_id],level:up[:level])]
     # debugger
     if @user.save
+      MakobangMailer.send_when_registered(@user).deliver
       redirect_to root_path, notice:'登録が完了しました'#saveできたらroot pathに飛ぶの意
     else
       flash.now[:alert]="登録に失敗しました"#noticeとalertは自動的にRailsに格納されているflashという変数の中に入ります。
@@ -57,8 +58,6 @@ class UsersController < ApplicationController
       render :retire
     end
   end
-
-
 
   private
   #viewから送られてきたデータは、paramsに格納されている。paramsを適切な各テーブルに挿入。
