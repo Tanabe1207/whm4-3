@@ -18,7 +18,7 @@
     </div>
 <% if @find_users==nil %>
   <% @find_users=User.all %>
-  <% flash.now[:alert]="検索条件に一致する投稿はありませんでした" %>
+  <%# flash.now[:alert]="検索条件に一致する投稿はありませんでした" %>
 <% end %>
 <% @find_users.each do |user| %>
 <% @offer = user.offers %>
