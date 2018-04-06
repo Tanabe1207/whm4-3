@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       @level.user_id = @user.id
       @level.language_id = @lang.id
       @level.save
-
+      MakobangMailer.send_when_registered(@user).deliver
       redirect_to root_path, notice:'登録が完了しました'#saveできたらroot pathに飛ぶの意
 
     else
@@ -67,8 +67,6 @@ class UsersController < ApplicationController
       render :retire
     end
   end
-
-
 
   private
   #viewから送られてきたデータは、paramsに格納されている。paramsを適切な各テーブルに挿入。

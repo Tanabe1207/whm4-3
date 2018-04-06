@@ -23,13 +23,16 @@ class User < ApplicationRecord
   }
   #validates :birthday, presence: true
   #validates :nationality, presence: true
-
-  has_many :user_language_levels, foreign_key: 'user_id'
-  accepts_nested_attributes_for :user_language_levels, allow_destroy: true, reject_if: :all_blank
+  # has_many :languages
+  # has_many :level, through: :user_language_levels source: 'language'#, foreign_key: 'user_id'
+  # accepts_nested_attributes_for :user_language_levels, allow_destroy: true, reject_if: :all_blank
   has_many :offers, dependent: :destroy
 
   has_many :favorites
   has_many :favorite_offers, through: :favorites, source: 'offer'
+
+  has_many :user_language_levels
+  has_many :languages, through: :user_language_levels, source:'languages'
 
 end
 
