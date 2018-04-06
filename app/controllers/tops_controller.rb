@@ -1,18 +1,24 @@
 class TopsController < ApplicationController
   def index
     @offer = Offer.all
+    # @find_users = ""
     if params[:nickname].present?
-      @find_user = User.find_by(nickname: params[:nickname])
-      @offer = @find_user.offers
+      @find_users = User.where(nickname: params[:nickname])
+      # @offer = @find_user.offers
       # @offer = @offer.user.get_by_nickname params[:nickname]
     end
     if params[:gender].present?
-      @find_user = User.find_by(gender: params[:gender])
-      @offer = @find_user.offers
+      if params[:gender] == "1"
+        gen = "women"
+      elsif params[:gender] == "0"
+        gen = "men"
+      end
+      @find_users = User.where(gender: gen)
+      # @offer = @find_user.offers
     end
     if params[:nationality].present?
-      @find_user = User.find_by(nationality: params[:nationality])
-      @offer = @find_user.offers
+      @find_users = User.where(nationality: params[:nationality])
+      # @offer = @find_users.offers
     end
     # allの場合全て表示される？
     # offerに紐づいたuserのテーブルの中身の一部も表示させたい

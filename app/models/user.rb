@@ -3,13 +3,14 @@ class User < ApplicationRecord
   mount_uploader :my_image, MyImageUploader
 
   validates :nickname, presence: true#, uniqueness: true
-  validates :mail, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }#, uniqueness: true
-  #validates :my_image, presence: true
-  enum gender:{ men: 0, women: 1}
   #ユーザー名による絞込
   scope :get_by_nickname, ->(nickname){
     where("nickname like ?", "%#{nickname}%")
   }
+
+  validates :mail, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }#, uniqueness: true
+  #validates :my_image, presence: true
+  enum gender:{men:0, women:1}
   #性別による絞込
   scope :get_by_gender, ->(gender){
     where(gender: gender)
