@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20180330084316) do
     t.string "my_image"
     t.integer "gender"
     t.date "birthday"
-    t.string "nationality"
+    t.integer "nationality"
     t.string "hobby"
     t.string "introduce_yourself"
     t.datetime "created_at", null: false

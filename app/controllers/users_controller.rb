@@ -10,19 +10,29 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user=User.new(user_params)#strong parameterに定義されている
+    @user=User.new(user_params)
+    @lang=Language.new(language_params)
+    @level=UserLanguageLevel.new(level_params)
+
+    #strong parameterに定義されている
 #再度@userにUserテーブルを構築。その際引数をuser_paramsメソッドにすることで、
 #viewで格納したparamsの値が入ったテーブルを引数とすることができる。
 #routes.rbで、POSTメソッド（HTTPメソッドの一つ）POST	users	users#createを指示しているから、
 #createを実行するとデータがデータベースに保存される。
     # user.user_language_levels = [UserLanguageLevel.new(user:user,language_id:up[:language_id],level:up[:level])]
     # debugger
-    if @user.save
+
+    if @user.save and @lang.save
+      @level.user_id = @user.id
+      @level.language_id = @lang.id
+      @level.save
+
       redirect_to root_path, notice:'登録が完了しました'#saveできたらroot pathに飛ぶの意
+
     else
-      flash.now[:alert]="登録に失敗しました"#noticeとalertは自動的にRailsに格納されているflashという変数の中に入ります。
+      # flash.now[:alert]="登録に失敗しました"#noticeとalertは自動的にRailsに格納されているflashという変数の中に入ります。
       #<%= flash[:alert] %>でviewの中でアクセスできる。
-      render :new #renderは呼び出すviewを指定する。
+      redirect_to new_user_path,alert: "登録に失敗しました" #renderは呼び出すviewを指定する。
     end
   end
 
@@ -65,10 +75,18 @@ class UsersController < ApplicationController
   #この作業がuser_paramsメソッド。
     def user_params
       params.require(:user).permit(:nickname, :mail, :password, :password_confirmation, :my_image,
-        :gender, :birthday, :nationality, :hobby, :language, :level, :introduce_yourself,)
+        :gender, :birthday, :nationality, :hobby, :introduce_yourself,)
          # languages_attributes: [:id, :language, :level, :_destroy])
     end
+    def language_params
+      params.require(:user).permit(:language)
     #  languages_attributesの前にコロンいらない？
+    end
+    def level_params
+      params.require(:user).permit(:level)
+    #  languages_attributesの前にコロンいらない？
+    end
+
 end
 # t.string :nickname
 # t.string :mail
