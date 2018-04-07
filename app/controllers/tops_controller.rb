@@ -1,9 +1,9 @@
 class TopsController < ApplicationController
   def index
-    @offer = Offer.all
+    @offer = Offer.all.order(created_at: :desc)
     # @find_users = ""
     if params[:nickname].present?
-      @find_users = User.where(nickname: params[:nickname])
+      @find_users = User.where(nickname: params[:nickname]).order(:id)
       # @offer = @find_user.offers
       # @offer = @offer.user.get_by_nickname params[:nickname]
     end
