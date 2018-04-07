@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'offer_details/index'
 
   root 'tops#index'
-  root 'tops#search'
+  get 'tops/search', to:'tops#search'
 
   get 'login', to:'sessions#new'
   post 'login', to: 'sessions#create'
