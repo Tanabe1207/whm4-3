@@ -1,10 +1,14 @@
 class TopsController < ApplicationController
+
   def index
-    @offer = Offer.all.order(created_at: :desc)
+    @offer = Offer.all
+  end
+
+  def search
     # @find_users = ""
     if params[:nickname].present?
       @find_users = User.where(nickname: params[:nickname]).order(:id)
-      # @offer = @find_user.offers
+      @offer = @find_users.offers
       # @offer = @offer.user.get_by_nickname params[:nickname]
     end
     if params[:gender].present?
@@ -14,11 +18,11 @@ class TopsController < ApplicationController
         gen = "men"
       end
       @find_users = User.where(gender: gen)
-      # @offer = @find_user.offers
+      @offer = @find_users.offers
     end
     if params[:nationality].present?
       @find_users = User.where(nationality: params[:nationality])
-      # @offer = @find_users.offers
+      @offer = @find_users.offers
     end
     # allの場合全て表示される？
     # offerに紐づいたuserのテーブルの中身の一部も表示させたい
