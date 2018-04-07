@@ -3,8 +3,8 @@
     <div class="row search">
       <div class=col-xs-8>
         <div class="search-box">
+
             <%= form_tag({ :controller=>'tops', :action=>'search'}, { :method=>:get}) do %>
-            絞込検索
               <%= label_tag :nickname, "名前" %>
               <%= text_field_tag :nickname, params[:nickname] %>
               <%= label_tag :gender, "　性別" %>
@@ -12,6 +12,7 @@
               <%= label_tag :nationality, "　国籍" %>
               <%= select_tag :nationality, options_for_select(User.nationalities), include_blank: true %>
               <%= submit_tag "検索" %>
+              <!-- <#% debugger %> -->
             <% end %>
         </div>
       </div>
