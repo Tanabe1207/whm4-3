@@ -3,7 +3,6 @@
     <div class="row search">
       <div class=col-xs-8>
         <div class="search-box">
-
             <%= form_tag({ :controller=>'tops', :action=>'search'}, { :method=>:get}) do %>
               <%= label_tag :nickname, "名前" %>
               <%= text_field_tag :nickname, params[:nickname] %>
