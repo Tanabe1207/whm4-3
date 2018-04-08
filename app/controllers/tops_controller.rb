@@ -7,8 +7,7 @@ class TopsController < ApplicationController
   def search
     # @find_users = ""
     if params[:nickname].present?
-      @find_users = User.where(nickname: params[:nickname]).order(:id)
-      @offer = @find_users.offers
+      @offer = User.where(nickname: params[:nickname]).order(:id).includes(:offers)
       # @offer = @offer.user.get_by_nickname params[:nickname]
     end
     if params[:gender].present?
@@ -17,15 +16,14 @@ class TopsController < ApplicationController
       elsif params[:gender] == "0"
         gen = "men"
       end
-      @find_users = User.where(gender: gen)
-      @offer = @find_users.offers
+      @offer = User.where(gender: gen).includes(:offers) #includesメソッドで紐づいてる
     end
     if params[:nationality].present?
-      @find_users = User.where(nationality: params[:nationality])
-      @offer = @find_users.offers
+      @offer = User.where(nationality: params[:nationality]).includes(:offers)
     end
     # allの場合全て表示される？
     # offerに紐づいたuserのテーブルの中身の一部も表示させたい
+    render template: "tops/index"
   end
 
   def create
