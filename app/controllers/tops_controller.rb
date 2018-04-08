@@ -7,7 +7,7 @@ class TopsController < ApplicationController
   def search
     # @find_users = ""
     if params[:nickname].present?
-      @offer = User.where(nickname: params[:nickname]).order(:id).includes(:offers)
+      users = User.where(nickname: params[:nickname]).order(:id).includes(:offers)
       # @offer = @offer.user.get_by_nickname params[:nickname]
     end
     if params[:gender].present?
@@ -16,10 +16,16 @@ class TopsController < ApplicationController
       elsif params[:gender] == "0"
         gen = "men"
       end
-      @offer = User.where(gender: gen).includes(:offers) #includesメソッドで紐づいてる
+      users = User.where(gender: gen).includes(:offers) #includesメソッドで紐づいてる
     end
     if params[:nationality].present?
-      @offer = User.where(nationality: params[:nationality]).includes(:offers)
+      users = User.where(nationality: params[:nationality]).includes(:offers)
+    end
+      @offer = [] #配列として定義する
+      users.each do |user|　#usersを1つ1つ出力
+        user.offers.each do |offer| #userのoffersを1つ1つ出力。これで|offer|はofferになる。
+          @offer.push offer　#@offer.push offerは配列使うときの書き方。@offerにofferを配列として持たせる。
+      end
     end
     # allの場合全て表示される？
     # offerに紐づいたuserのテーブルの中身の一部も表示させたい
