@@ -1,11 +1,7 @@
 class CreateLanguages < ActiveRecord::Migration[5.1]
   def change
     create_table :languages do |t|
-
-      t.integer :user_id#消えてる
-      t.string :language #データ型changed to integer
-      t.integer :level#消えてる
-
+      t.integer :language
       t.timestamps
     end
   end

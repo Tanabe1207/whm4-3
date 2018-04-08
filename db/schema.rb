@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407064107) do
+ActiveRecord::Schema.define(version: 20180330084316) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20180407064107) do
   end
 
   create_table "languages", force: :cascade do |t|
-    t.string "language"
+    t.integer "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20180407064107) do
   create_table "user_language_levels", force: :cascade do |t|
     t.integer "user_id"
     t.integer "language_id"
-    t.integer "level", null: false
+    t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["language_id"], name: "index_user_language_levels_on_language_id"
