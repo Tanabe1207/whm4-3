@@ -11,7 +11,7 @@ class CreateOffers < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :detail
       t.string :offer_image
-      t.datetime :created_at 
+      # t.datetime :created_at 
 
       t.timestamps
     end

@@ -32,7 +32,7 @@ class User < ApplicationRecord
   has_many :favorite_offers, through: :favorites, source: 'offer'
 
   has_many :user_language_levels
-  has_many :languages, through: :user_language_levels, source:'languages'
+  # has_many :languages, through: :user_language_levels, source:'language'
 
 end
 

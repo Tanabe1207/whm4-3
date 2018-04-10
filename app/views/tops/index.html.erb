@@ -11,7 +11,7 @@
               <%= label_tag :nationality, "　国籍" %>
               <%= select_tag :nationality, options_for_select(User.nationalities), include_blank: true %>
               <%= label_tag :language, "　話せる言語" %>
-              <%= select_tag :language, options_for_select(User.languages.languages), include_blank: true %>
+              <%= select_tag :language, options_for_select(Language.languages), include_blank: true %>
               <%= submit_tag "検索" %>
               <%# debugger %>
             <% end %>

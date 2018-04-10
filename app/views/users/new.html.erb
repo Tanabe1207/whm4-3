@@ -84,7 +84,8 @@
           <div class="form-group">
              <%= f.label :"話せる言語" %>
              <%=f.select :language, Language.languages.keys.to_a, {}, class: 'form-control' %>
-            <%= f.select :level, options_for_select([["全く話せない",1],["片言でなら",2],["日常会話OK",3],["ビジネスで使ってる",4],["ネイティヴ",5]]) %>
+             <%= f.label :"Level" %>
+             <%= f.select :level, UserLanguageLevel.levels.keys.to_a, {}, class: 'form-control' %>
           </div>
 
           <!-- language_usersをlanguegesに紐づけて並列表示 -->
