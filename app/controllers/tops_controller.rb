@@ -1,4 +1,5 @@
 class TopsController < ApplicationController
+
   def index
     @offer = Offer.all
     # @find_users = ""
@@ -33,8 +34,6 @@ class TopsController < ApplicationController
       render :new
     end
   end
-
-
   # def create
 
   # private

@@ -34,6 +34,9 @@ class User < ApplicationRecord
   has_many :user_language_levels
   has_many :languages, through: :user_language_levels, source:'languages'
 
+  has_many :comments
+  has_many :comment_offers, through: :comments, source:'offer'
+
 end
 
 # t.string :nickname
