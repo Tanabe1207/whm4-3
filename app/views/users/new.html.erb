@@ -5,6 +5,7 @@
         <h1 class="text-center text-white">Working Holiday Mate 登録フォーム</h1>
         <%= form_for :user,url:users_path do |f| %>
           <div class="form-group">
+            <% debugger %> 
             <%= t 'attributes.user.nickname' %></br>
             <%= f.label :nickname, class: 'text-white' %>
             <%= f.text_field :nickname, class: 'form-control',required: true %>
