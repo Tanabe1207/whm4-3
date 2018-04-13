@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        nickname: 名前
+        mail: メールアドレス
+
+#
+#         t.string :nickname
+#         t.string :mail
+#         t.string :my_image
+#         t.integer :gender
+#         t.date :birthday
+#         # t.integer :age
+#         t.integer :nationality
+#         t.string :hobby
+#         t.string :introduce_yourself
+#         # t.string :favorites
+# search
