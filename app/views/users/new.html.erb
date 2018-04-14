@@ -2,11 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-4 col-md-4 users-new-container">
-        <h1 class="text-center text-white">Working Holiday Mate 登録フォーム</h1>
+        <h1 class="text-center text-white">Working Holiday Mate <%= t :registration %></h1>
         <%= form_for :user,url:users_path do |f| %>
           <div class="form-group">
-            <% debugger %> 
-            <%= t 'attributes.user.nickname' %></br>
+            <%= t 'activerecord.attributes.user.nickname' %></br>
+            <!-- 日本語化 -->
             <%= f.label :nickname, class: 'text-white' %>
             <%= f.text_field :nickname, class: 'form-control',required: true %>
           </div>
