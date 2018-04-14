@@ -54,6 +54,11 @@
                       <%= image_tag 'icons/login.png' %>
                     <% end %>
                   </li>
+                  <li>
+                    <%= link_to('日本語', url_for(params.merge(locale: 'ja'))) %>
+                    <%= link_to('Eng', url_for(params.merge(locale: 'en'))) %>
+                  </li>
+
               <% end %>
             </ul>
         </div>
