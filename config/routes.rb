@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     # "=>"は実行結果
     #root 'tops#index'
     get 'tops/index'
+    get 'tops/search'
 
     get 'offer_details/index'
     get 'login', to:'sessions#new'

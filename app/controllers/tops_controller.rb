@@ -6,24 +6,25 @@ class TopsController < ApplicationController
 
   def search
     # @find_users = ""
-    if params[:nickname].present?
-      users = User.where(nickname: params[:nickname]).order(:id).includes(:offers)
+    search_param = params[:search]
+    if search_param.present?
+      users = User.where(nickname: search_param[:nickname]).order(:id).includes(:offers)
       # @offer = @offer.user.get_by_nickname params[:nickname]
     end
-    if params[:gender].present?
-      if params[:gender] == "1"
+    if search_param[:gender].present?
+      if search_param[:gender] == "1"
         gen = "women"
-      elsif params[:gender] == "0"
+      elsif search_param[:gender] == "0"
         gen = "men"
       end
       users = User.where(gender: gen).includes(:offers) #includesメソッドで紐づいてる
     end
-    if params[:nationality].present?
-      users = User.where(nationality: params[:nationality]).includes(:offers)
+    if search_param[:nationality].present?
+      users = User.where(nationality: search_param[:nationality]).includes(:offers)
     end
-    if params[:language].present?
+    if search_param[:language].present?
       # users =User.includes(:user_language_levels).includes(:language).where(language: params[:language]).includes(:user_language_levels).includes(:user).includes(:offers)
-      langs = Language.where(language: params[:language])
+      langs = Language.where(language: search_param[:language])
       users = []
       langs.each do |lang|
         users.push lang.user_language_level.user

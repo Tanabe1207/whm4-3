@@ -3,16 +3,16 @@
     <div class="row search">
       <div class=col-xs-8>
         <div class="search-box">
-            <%= form_tag({ :controller=>'tops', :action=>'search'}, { :method=>:get}) do %>
-              <%= label_tag :nickname, "名前" %>
-              <%= text_field_tag :nickname, params[:nickname] %>
-              <%= label_tag :gender, "　性別" %>
-              <%= select_tag :gender, options_for_select(User.genders), include_blank: true %>
-              <%= label_tag :nationality, "　国籍" %>
-              <%= select_tag :nationality, options_for_select(User.nationalities), include_blank: true %>
-              <%= label_tag :language, "　話せる言語" %>
-              <%= select_tag :language, options_for_select(Language.languages), include_blank: true %>
-              <%= submit_tag "検索" %>
+            <%= form_for :search ,url: tops_search_path, method:'get' do |f| %>
+              <%= f.label :nickname, "名前" %>
+              <%= f.text_field :nickname%>
+              <%= f.label :gender, "　性別" %>
+              <%= f.select :gender, options_for_select(User.genders), include_blank: true %>
+              <%= f.label :nationality, "　国籍" %>
+              <%= f.select :nationality, options_for_select(User.nationalities), include_blank: true %>
+              <%= f.label :language, "　話せる言語" %>
+              <%= f.select :language, options_for_select(Language.languages), include_blank: true %>
+              <%= f.submit "検索" %>
               <%# debugger %>
             <% end %>
         </div>
