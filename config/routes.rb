@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
     get 'retire', to:'users#retire'
     # "=>"は実行結果
+    #root 'tops#index'
+    get 'tops/index'
 
     get 'offer_details/index'
-    root 'tops#index'
     get 'login', to:'sessions#new'
     post 'login', to: 'sessions#create'
     delete 'logout', to:'sessions#destroy'

@@ -12,9 +12,23 @@
     <nav class="navber navber-default navber-fixed-top navber-transparent">
 
       <div class="ber_container">
-            <%= link_to root_path do %>
-              <span><%= image_tag 'icons/logo.png', class:'navber-brand' %></span>
-            <% end %>
+            <ul class="nav navber-nav navber-left">
+                  <li class="home_logo">
+                    <%= link_to tops_index_path do %>
+                      <%= image_tag 'icons/logo.png', class:'navber-brand' %>
+                    <% end %>
+                  </li>
+                <div class="change_language">
+                  <li class="ja">
+                    <%= link_to '日本語', (url_for(locale: 'ja')) %>
+                  </li>
+                  <li class="en">
+                    <%= link_to 'ENG', (url_for(locale: 'en')) %>
+                    <!-- link_to(offer_details_index_path(a: offer.id)) -->
+                    <%#= link_to('Eng', url_for(params.merge(locale: 'en'))) %>
+                  </li>
+                </div>
+            </ul>
             <ul class="nav navber-nav navber-right">
               <% if logged_in? %><!-- "?"は真偽値を返す-->
                   <li>
@@ -53,10 +67,6 @@
                     <%= link_to login_path do %>
                       <%= image_tag 'icons/login.png' %>
                     <% end %>
-                  </li>
-                  <li>
-                    <%= link_to('日本語', url_for(params.merge(locale: 'ja'))) %>
-                    <%= link_to('Eng', url_for(params.merge(locale: 'en'))) %>
                   </li>
 
               <% end %>

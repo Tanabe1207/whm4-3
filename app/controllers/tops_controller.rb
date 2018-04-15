@@ -2,10 +2,12 @@ class TopsController < ApplicationController
 
   def index
     @offer = Offer.all
+  end
+
+  def search
     # @find_users = ""
     if params[:nickname].present?
-      @find_users = User.where(nickname: params[:nickname])
-      # @offer = @find_user.offers
+      users = User.where(nickname: params[:nickname]).order(:id).includes(:offers)
       # @offer = @offer.user.get_by_nickname params[:nickname]
     end
     if params[:gender].present?
@@ -14,15 +16,43 @@ class TopsController < ApplicationController
       elsif params[:gender] == "0"
         gen = "men"
       end
-      @find_users = User.where(gender: gen)
-      # @offer = @find_user.offers
+      users = User.where(gender: gen).includes(:offers) #includesメソッドで紐づいてる
     end
     if params[:nationality].present?
-      @find_users = User.where(nationality: params[:nationality])
-      # @offer = @find_users.offers
+      users = User.where(nationality: params[:nationality]).includes(:offers)
+    end
+    if params[:language].present?
+      # users =User.includes(:user_language_levels).includes(:language).where(language: params[:language]).includes(:user_language_levels).includes(:user).includes(:offers)
+      langs = Language.where(language: params[:language])
+      users = []
+      langs.each do |lang|
+        users.push lang.user_language_level.user
+      end
+    end
+    if users.nil?
+      redirect_to :action => "index" and return
+    else
+
+      # users = UserLanguageLevel.where("language_id Like = ?" lang.id
+      # user_language_levels.lang.includes(:offers)
+
+      # includes(:user_language_levels).includes(:language).where(language: params[:language]).includes(:user_language_levels).includes(:user).includes(:offers)
+      # User.includes(:user_language_levels).includes(:language).where(language: params[:language]).includes(:offers)
+      # user で　has_many :user_language_levels
+      # user_language_levels　で　belongs_to :language
+      #whereの中のlanguageはLanguagesテーブルのlanguageカラム
+
+
+      @offer = [] #配列として定義する
+      users.each do |user| #usersを1つ1つ出力
+        user.offers.each do |offer| #userのoffersを1つ1つ出力。これで|offer|はofferになる。
+          @offer.push offer #@offer.push offerは配列使うときの書き方。@offerにofferを配列として持たせる。
+        end
+      end
     end
     # allの場合全て表示される？
     # offerに紐づいたuserのテーブルの中身の一部も表示させたい
+    render template: "tops/index" and return
   end
 
   def create

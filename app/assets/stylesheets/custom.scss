@@ -17,9 +17,20 @@
   // a {
   // color: #fff !important;
   // }
-  .navber-brand{
+  .navber-left{
     padding: 0px;
-    margin: 10px
+    margin: 10px;
+    display:inline-block;
+
+    .home_logo{
+      display:inline-block;
+    }
+    .change_language{
+      display:inline-block;
+      li{
+        float:right;
+      }
+    }
   }
   .navber-right{
     float:right

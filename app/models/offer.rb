@@ -1,4 +1,6 @@
 class Offer < ApplicationRecord
+  default_scope -> { order(created_at: :desc) }
+
   mount_uploader :offer_image, MyImageUploader
   validates :user_id, presence: true
   validates :country, presence: true

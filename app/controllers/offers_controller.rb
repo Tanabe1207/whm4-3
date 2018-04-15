@@ -15,7 +15,7 @@ class OffersController < ApplicationController
 
   private
   def offer_params
-    params.require(:offer).permit(:country, :state, :region, :period_from, :period_to, :title, :detail, :offer_image)
+    params.require(:offer).permit(:country, :state, :region, :period_from, :period_to, :title, :detail, :offer_image, :created_at)
   end
 
 end
