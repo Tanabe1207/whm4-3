@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       @level.language_id = @lang.id
       @level.save
       MakobangMailer.send_when_registered(@user).deliver
-      redirect_to root_path, notice:'登録が完了しました'#saveできたらroot pathに飛ぶの意
+      redirect_to tops_index_path, notice:'登録が完了しました'#saveできたらroot pathに飛ぶの意
 
     else
       # flash.now[:alert]="登録に失敗しました"#noticeとalertは自動的にRailsに格納されているflashという変数の中に入ります。
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   def destroy
     if current_user.destroy
       reset_session
-      redirect_to root_path, notice:'退会が完了しました'
+      redirect_to tops_index_path, notice:'退会が完了しました'
     else
       render :retire
     end

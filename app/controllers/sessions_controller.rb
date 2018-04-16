@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       #一致していればtrue。左辺と右辺両方がtrueならtrueを返す。
       log_in user
       #()を省略してる
-      redirect_to root_path, alert:'ログインに成功しました'
+      redirect_to tops_index_path, alert:'ログインに成功しました'
     else
       flash[:denger] = 'ログインに失敗しました'
       render 'new'
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
 
     def destroy
      log_out
-     redirect_to root_url
+     redirect_to tops_index_url
     end
 
    private

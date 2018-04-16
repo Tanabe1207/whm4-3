@@ -24,7 +24,7 @@
       <% @offer.each do |offer| %>
       <!-- 募集案件 -->
       <div class="row">
-        <div class="col-md-3 offer.container" >
+        <div class="col-md-5 offer.container" >
           <%= link_to(offer_details_index_path(a: offer.id)) do %>
           <!-- :a　はoffer.idのハッシュ。paramsに格納され、コントローラーでfindメソッドで、どのOfferテーブルを引っ張ってくるか指定するのに使う。 -->
           <h3 class="offer_title">
@@ -82,7 +82,7 @@
               <li class="talkable-languages">
                 話したい言語　
                 <% offer.user.user_language_levels.each do |language| %>
-                  <%= language.language %>
+                  <%= language.language.language %>
                 <% end %>
               </li>
               <li class="talkable-languages-level">

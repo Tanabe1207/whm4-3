@@ -1,15 +1,24 @@
 <div class="offer-new-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3 chat">
-
-        <p class="offer-comment">
-
+      <div class="col-md-10 chat">
           <% @comments.each do |comment| %>
-            <%= comment.contents %>
-          <% end %>
-        </p>
+           <ul class="comments_container">
+            <li class="comments_image">
+              <%= image_tag comment.user.my_image.url %>
+            </li>
+            <li class="comments_nickname">
+              <%= comment.user.nickname %>
+            </li>
+            <li class="comments_contents">
+              <%= comment.contents %>
+            </li>
+            <li class="comments_created_at">
+              <%= comment.created_at %>
+            </li>
+          </ul>
 
+          <% end %>
       </div>
       <div class="col-md-6 col-md-offset-3">
         <h1 class="text-center">Add your comment</h1>

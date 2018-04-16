@@ -59,7 +59,7 @@ class TopsController < ApplicationController
   def create
     @offer = current_user.offers.new#(offer_params)
     if @offer.save
-      redirect_to root_path, notice:'投稿しました'
+      redirect_to tops_index_path, notice:'投稿しました'
     else
       flash.now[:alert]="投稿に失敗しました"
       render :new

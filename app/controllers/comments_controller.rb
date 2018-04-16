@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def index
-    @comments=Comment.where(user_id: current_user.id).where(offer_id: params[:offer_id])
+    @comments=Comment.where(user_id:current_user.id).where(offer_id:params[:offer_id])
     @comment = Comment.new
     #comment/newでテーブル作成
     #def new はnew.htmlへのrender
