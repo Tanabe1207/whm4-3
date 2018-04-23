@@ -3,15 +3,15 @@
     <div class="row search">
       <div class=col-xs-8>
         <div class="search-box">
-            <%= form_for :search ,url: tops_search_path, method:'get' do |f| %>
+            <%= form_for :aaa ,url: tops_search_path, method:'get' do |f| %>
               <%= f.label :nickname, "名前" %>
-              <%= f.text_field :nickname%>
+              <%= f.text_field :nickname_cont%>
               <%= f.label :gender, "　性別" %>
-              <%= f.select :gender, options_for_select(User.genders), include_blank: true %>
+              <%= f.select :gender_eq, options_for_select(User.genders), include_blank: true %>
               <%= f.label :nationality, "　国籍" %>
-              <%= f.select :nationality, options_for_select(User.nationalities), include_blank: true %>
+              <%= f.select :nationality_eq, options_for_select(User.nationalities), include_blank: true %>
               <%= f.label :language, "　話せる言語" %>
-              <%= f.select :language, options_for_select(Language.languages), include_blank: true %>
+              <%= f.select :language_eq, options_for_select(Language.languages), include_blank: true %>
               <%= f.submit "検索" %>
               <%# debugger %>
             <% end %>

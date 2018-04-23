@@ -8,8 +8,9 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
+
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -37,6 +38,8 @@ gem 'carrierwave'
 
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+
+gem 'ransack'
 #上２つは渡航期間登録のためのgem
 
 group :development, :test do
@@ -63,6 +66,9 @@ group :development, :test do
   # Use jquery-UI as the JavaScript library
   gem 'jquery-ui-rails'
 
+  gem 'sqlite3'
+
+
 
 end
 
@@ -70,6 +76,12 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'letter_opener'
+
+end
+
+group :production do
+    #Heroku
+  gem 'pg', '0.20.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

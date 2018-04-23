@@ -23,4 +23,8 @@ class CommentsController < ApplicationController
       redirect_to comments_path, notice: 'コメントの投稿に失敗しました'
     end
   end
+
+  def allcomments
+    @all_comments=Comment.all
+  end
 end

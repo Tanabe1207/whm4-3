@@ -15,12 +15,16 @@ Rails.application.routes.draw do
     resources 'users'
     resources 'offers'
     # get 'comments/index', to:'comments#index'
-    resources "comments"
+    get 'comments/index'
+    post 'comments/index', to: 'comments#create'
+    get 'comments/allcomments', to:'comments#allcomments'
+
     # post 'comment', to:'comment#create'
     get 'inquiries/index'
     post 'inquiries/confirm', to:'inquiries#confirm'
     post 'inquiries/thanks', to:'inquiries#thanks'
-    post 'users/show', to: 'favorites#create'
+    post 'users/show', to:'favorites#create'
+
 
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
