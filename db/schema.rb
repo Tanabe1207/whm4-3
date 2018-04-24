@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410084430) do
+ActiveRecord::Schema.define(version: 20180424081228) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180410084430) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.integer "user_language_levels_id"
+    t.string "Fb_link"
   end
 
 end

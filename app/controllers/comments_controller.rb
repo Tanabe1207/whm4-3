@@ -18,9 +18,9 @@ class CommentsController < ApplicationController
     @comment.offer_id = params[:comment][:offer_id] #OK?
     @comment.contents = params[:comment][:contents]
     if @comment.save
-      redirect_to comments_path(offer_id: params[:comment][:offer_id]), notice: 'コメントを投稿しました'
+      redirect_to comments_index_path(offer_id: params[:comment][:offer_id]), notice: 'コメントを投稿しました'
     else
-      redirect_to comments_path, notice: 'コメントの投稿に失敗しました'
+      redirect_to comments_index_path(offer_id: params[:comment][:offer_id]), notice: 'コメントの投稿に失敗しました'
     end
   end
 

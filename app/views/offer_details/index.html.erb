@@ -29,7 +29,7 @@
           <%=image_tag 'icons/favorite.png' %>
         </div>
         <div class="contact-icon">
-          <%= link_to comments_path(offer_id: @offer_details.id) do %>
+          <%= link_to comments_index_path(offer_id: @offer_details.id) do %>
           <%= image_tag 'icons/contact.png' %>
           <% end %>
         </div>

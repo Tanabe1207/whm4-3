@@ -31,6 +31,9 @@
             </ul>
             <ul class="nav navber-nav navber-right">
               <% if logged_in? %><!-- "?"は真偽値を返す-->
+                  <li class="hello">
+                  <p>HELLO  <%= current_user.nickname %>　</p>
+                  </li>
                   <li>
                     <%= link_to new_offer_path do %>
                       <%= image_tag 'icons/offer.png' %><!--投稿-->
