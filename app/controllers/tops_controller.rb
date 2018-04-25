@@ -1,7 +1,7 @@
 class TopsController < ApplicationController
 
   def index
-    @offer = Offer.all
+    @offer = Offer.page(params[:page]).per(5).order(:id)
   end
 
   # def search
