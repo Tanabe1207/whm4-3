@@ -44,12 +44,22 @@
    }
 }
 
-
-.offer {
+.search.row{
+    background: white;
+    width: 100%;
+}
+.row{
     margin: 2em 0;
     background: #f1f1f1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    display: inline-block;
+    width: 40%;
 }
+
+.offer.row{
+    margin: 40px;
+}
+
 .offer .offer_title {
     font-size: 1.2em;
     background: #5fc2f5;

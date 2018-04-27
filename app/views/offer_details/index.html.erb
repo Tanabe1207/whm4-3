@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-md-10 offer-main">
+    <div class="offer-main">
       <div class="offer-top">
         <div class="offer-image">
           <%= image_tag @offer_details.offer_image.url %>
@@ -11,7 +11,7 @@
           <%= @offer_details.country %>:<%= @offer_details.state %>,<% @offer_details.region %></li>
         </div>
         <!-- 左寄せ -->
-        <div class="period">
+        <div class="offer-period">
           <p>渡航予定日　</p>
           <%= @offer_details.period_from %>　～　<%= @offer_details.period_to %>
         </div>
